@@ -7,8 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "IPenController.h"
 
 @interface ViewController ()
+{
+    IPenController *controller;
+}
 
 @end
 
@@ -18,6 +22,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    controller = [IPenController sharedController];
 }
 
 - (void)viewDidUnload
@@ -29,6 +34,14 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+- (IBAction)switchToggled:(id)sender
+{
+    if (((UISwitch*)sender).isOn)
+        [controller start];
+    else
+        [controller stop];
+
 }
 
 @end

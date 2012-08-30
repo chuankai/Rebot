@@ -86,7 +86,7 @@ static IPenController *sharedController = nil;
     [self initMotionMeter];
     
 //    controllerTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(controller:) userInfo:nil repeats:YES];
-    [server startWithPort:33352 UsingBlock:^(NSInputStream *stream){
+    [server startWithPort:33354 UsingBlock:^(NSInputStream *stream){
         uint8_t buf[1];
         NSInteger len;
         len = [(NSInputStream *)stream read:buf maxLength:1];

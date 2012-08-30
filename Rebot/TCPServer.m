@@ -43,9 +43,12 @@
     CFRunLoopAddSource(CFRunLoopGetCurrent(), socketsource, kCFRunLoopDefaultMode);
     eventBlock = block;
 }
+
 - (void)stop
 {
-    CFSocketInvalidate(sock);
+    if (sock)
+        CFSocketInvalidate(sock);
+    
     NSLog(@"socket invalidated");
 }
 
